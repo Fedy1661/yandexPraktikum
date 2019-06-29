@@ -31,7 +31,7 @@ window.addEventListener('scroll', function () {
     card.style.color = 'rgb(' + (pageSettings.red * 0 + scrollY / 4) + ',' + (pageSettings.green * 0 + scrollY / 4) + ',' + (pageSettings.blue * 0 + scrollY / 4) + ')';
   }
 });
-setInterval(changeBg, 1000);
+setInterval(changeBg, 5000);
 // document.getElementById('main-header').addEventListener("click", changeBg);
 function Car(x,y) {
   this.x = x;
