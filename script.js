@@ -4,6 +4,10 @@ function getRandom(anyArray) {
   var randomElement = anyArray[randomNumber];
   return randomElement;
 }
+function changeBg(){
+  $('.header').css('background-image', 'url('+ getRandom(pageSettings.background) +")");
+}
+setInterval(changeBg, 5000);
 var pageSettings = {
   red: 200,
   green: 200,
