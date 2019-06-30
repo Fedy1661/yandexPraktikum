@@ -116,4 +116,3 @@ Car.prototype.show = function(){
 };
 var tesla = new Car(10, 20);
 var bugatti = new Car(100, 200);
-
