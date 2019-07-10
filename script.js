@@ -1,11 +1,18 @@
-
 function getRandom(anyArray) {
-  var randomNumber = Math.floor(Math.random() * anyArray.length);
-  var randomElement = anyArray[randomNumber];
+  var randomElement = null;
+  while (randomElement == null) {
+    var randomNumber = Math.floor(Math.random() * anyArray.length);
+    if ($('.header__background').css('background-image') != 'url("'+ anyArray[randomNumber]+ '")'){
+      var randomElement = anyArray[randomNumber];
+    }
+  }  
   return randomElement;
 }
 function changeBg(){
-  $('.header').css('background-image', 'url('+ getRandom(pageSettings.background) +")");
+  $('.header__background').animate({'opacity':'0'},500,function(){
+      $(this).css({'background-image': 'url('+ getRandom(pageSettings.background) +')'});
+      $(this).animate({'opacity':'1'},1000);
+    });
 }
 setInterval(changeBg, 5000);
 var pageSettings = {
@@ -19,8 +26,9 @@ var pageSettings = {
               'https://pictures.s3.yandex.net/cover-wall.jpg']
 }, bgColor = 'rgb(' + pageSettings.red + ', ' + pageSettings.green + ', ' + pageSettings.blue + ')';
 document.body.style.backgroundColor = bgColor;
-var header = document.getElementById('main-header');
-header.style.backgroundImage = "url("+ getRandom(pageSettings.background) +")";
+$('.header__background').css({'background-image': 'url('+ getRandom(pageSettings.background) +')'});
+// var header = document.getElementById('main-header');
+// header.style.backgroundImage = "url("+ getRandom(pageSettings.background) +")";
 var i = 0;
 var cards = document.getElementsByClassName('card');
 window.addEventListener('scroll', function () {
